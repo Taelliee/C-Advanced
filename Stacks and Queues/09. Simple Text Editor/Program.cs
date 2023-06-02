@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 string text = string.Empty;
 
@@ -20,13 +21,12 @@ for (int i = 0; i < operations; i++)
 			break;
 		case 2:
 			changes.Push(text);
-			for (int j = 0; j < int.Parse(tokens[1]); j++)
-			{
-				changes.Pop();
-			}
+			int countChange = int.Parse(tokens[1]);
+			text = text.Remove(text.Length - countChange);
 			break;
 		case 3:
-
+			int indexChange = int.Parse(tokens[1]) - 1;
+			Console.WriteLine(text[indexChange]);
 			break;
 		case 4:
 			text = changes.Pop();
